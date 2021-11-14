@@ -6,7 +6,7 @@ if(isset($_POST['user']))
  header('Location: cookie_get.php');
 }
 ?>
-<form action="authorization.php" method="POST" name="entry">
+<form action="index.php" method="POST" name="entry">
 <fieldset>
   <legend>Авторизация</legend>
   Имя: <input type="text" name="user"><br>
