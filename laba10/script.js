@@ -4,9 +4,19 @@ var arr = []; //массив случайных чисел для генерац
 var trabl = 0; //счетчик открытых квадратов
 var finish = 0; //подсчет выигрышей
 
+var audio = new Audio();   
+audio.src = devil.mp3;
+audio.volume = 0.2;   
+audio.autoplay = true;   
+
+var audi = new Audio();   
+audi.src = hiroshimo.mp3;
+audi.volume = 0.2;   
+audi.autoplay = true;   
+
 //кликаем на квадратик
 function ClickBox(elem, i) {
-	var box = document.getElementById(elem.id);
+		var box = document.getElementById(elem.id);
 	//var box2 = document.getElementByClassName("div1");
 	var c = arr[i-1] + 1;
 	box.style.backgroundImage = 'url("images/img' + c + '.jpg")';
@@ -23,6 +33,7 @@ function ClickBox(elem, i) {
 			setTimeout(CloseBox, 300);
 		}
 	}
+	
 }
 
 //закрашиваем угаданные квадраты желтым цветом
@@ -33,10 +44,11 @@ function DeleteBox(el){
 	box2.style.background = 'yellow';
 	trabl=0;
 	finish++;
-	
+	audio.play();
 	if(finish == 8) {
 		var span = document.getElementById("span"); 
 		span.innerHTML = "Молодец!!!";
+		audi.play();
 	}
 	return trabl;
 }
@@ -74,7 +86,7 @@ function Start(elem) {
 	{
 		var tr = getRandomInt(0, 7);
 		
-		if (ReturnTr(tr) < 7) arr[i] = tr;
+		if (ReturnTr(tr) < 2) arr[i] = tr;
 		else i--;
 	}
 	elem.innerHTML = "";
